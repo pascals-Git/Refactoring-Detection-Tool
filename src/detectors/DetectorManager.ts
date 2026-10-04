@@ -5,6 +5,9 @@ import { TrackedEdit } from '../tracker/EditTracker';
 import { DetectionResult, IRefactoringDetector } from './IRefactoringDetector';
 import { RenameVariableDetector } from './RenameVariableDetector';
 import { ExtractMethodDetector } from './ExtractMethodDetector';
+import { ReplaceMagicLiteral } from './ReplaceMagicLiteralDetector';
+import { InlineVariableDetector } from './InlineVariableDetector';
+import { DecomposeConditionalDetector } from './DecomposeConditionalDetector';
 
 export class DetectorManager {
     private detectors: IRefactoringDetector[] = [];
@@ -17,6 +20,9 @@ export class DetectorManager {
         // register all detectors here
         this.detectors.push(new RenameVariableDetector());
         this.detectors.push(new ExtractMethodDetector());
+        this.detectors.push(new ReplaceMagicLiteral());
+        this.detectors.push(new InlineVariableDetector());
+        this.detectors.push(new DecomposeConditionalDetector());
     }
 
     public checkForRefactoring(history: TrackedEdit[], document: vscode.TextDocument): DetectionResult | null {

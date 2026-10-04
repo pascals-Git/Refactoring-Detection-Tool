@@ -2,11 +2,11 @@
 import * as vscode from 'vscode';
 
 export enum EditAction {
-    Typing = "Typing", // single char typed
-    Paste = "Paste",  // few chars added
-    CutOrDelete = "CutOrDelete",  // selected block deleted or cut
-    Backspace = "Backspace",   // single char deleted
-    Overwrite = "Overwrite",  // selected text replaced by other text
+    Typing = "Typing",              // single char typed
+    Paste = "Paste",                // few chars added
+    CutOrDelete = "CutOrDelete",    // selected block deleted or cut
+    Backspace = "Backspace",        // single char deleted
+    Overwrite = "Overwrite",        // selected text replaced by other text
     Unknown = "Unknown"
 }
 
@@ -60,9 +60,9 @@ export class EditTracker {
         }        
     }
 
-    private categorizeChange(chagne: vscode.TextDocumentContentChangeEvent): EditAction {
-        const textInserted = chagne.text;
-        const lengthRemoved = chagne.rangeLength;
+    private categorizeChange(change: vscode.TextDocumentContentChangeEvent): EditAction {
+        const textInserted = change.text;
+        const lengthRemoved = change.rangeLength;
 
         if (textInserted.length === 1 && lengthRemoved === 0) {
             return EditAction.Typing;
@@ -71,7 +71,7 @@ export class EditTracker {
             return EditAction.Paste;
         }
         else if (textInserted === '' && lengthRemoved > 0) {
-            if (this.lastSelection && this.lastSelection.isEqual(chagne.range)) {
+            if (this.lastSelection && this.lastSelection.isEqual(change.range)) {
                 return EditAction.CutOrDelete;
             }
             return EditAction.Backspace;

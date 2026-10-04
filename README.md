@@ -1,6 +1,6 @@
-# Refactoring-Detection-Tool README
+# Refactoring-Detection-Tool 
 
-This VSCode extension for "On-The-Fly" refactoring detection while coding.
+This VSCode extension is for "On-The-Fly" refactoring detection while coding.
 
 ## Table of Contents
 - [Features](#features)
@@ -17,9 +17,6 @@ Refactorings featured:
 - Inline Variable
 - Replace Magic Literal
 - Decompose Conditional 
-
-
-\!\[feature X\]\(media/feature-x.png\)
 
 ## Extension Settings
 
@@ -38,12 +35,4 @@ None
 
 ### 1.0.0
 
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
+Initial release. 

@@ -47,7 +47,7 @@ export class ExtractMethodDetector implements IRefactoringDetector {
                     return {
                         name: "Extract Method",
                         message: `Extracting method '${methodName}' automatically?`,
-                        actionCommand: "editor.action.refactor" // calling command form vvs compiler api
+                        actionCommand: "editor.action.refactor" // calling command from vscode compiler api
                     };
                 }                
             }

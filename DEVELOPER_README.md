@@ -1,4 +1,4 @@
-# Refactoring-Detection-Tool 
+# Developer: Refactoring-Detection-Tool 
 
  A TypeScript VSCode-Extension.
 
